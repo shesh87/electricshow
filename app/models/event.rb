@@ -15,20 +15,13 @@ class Event < ActiveRecord::Base
 	
 
 	def self.search(title, artist, date, city, venue)
-		@title = title
-		where('title ILIKE :title', title: @title)
-
-		@artist = artist
-		where('artist ILIKE :artist', artist: @artist)
-
-		@date = date
-		where('date ILIKE :date', date: @date)
-
-		@city = city
-		where('city ILIKE :city', city: @city)
-		
-		@venue = venue
-		where('venue ILIKE :venue', venue: @venue)
+		query = self
+		query = query.where('title ILIKE :title', title: "%#{title}%") if title.present?
+		query = query.where('artist ILIKE :artist', artist: "%#{artist}%") if artist.present?
+		query = query.where(date: "#{date}") if date.present?
+		query = query.where('city ILIKE :city', city: "%#{city}%") if city.present?
+		query = query.where('venue ILIKE :venue', venue: "%#{venue}%") if venue.present?
+		return query
 	end
 
 

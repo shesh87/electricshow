@@ -12,9 +12,7 @@
 
 
 
-<% if flash[:nothing] %>
-    <%= flash[:nothing] %>
-<% end %>
+
 
 
 <br><br>
@@ -38,10 +36,14 @@
 	  <%= label_tag(:venue, "Venue:") %>
 	  <%= search_field_tag(:venue) %>
 
-	  <%= collection_select(Event.all, :id, :title) %>
-
 	  <%= submit_tag("Search") %>
 	<% end %>
+
+	<div class="flash-msg">
+		<% if flash[:nothing] %>
+    		<%= flash[:nothing] %>
+		<% end %>
+	</div>
 
 </div>
 

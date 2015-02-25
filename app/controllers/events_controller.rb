@@ -12,13 +12,13 @@ class EventsController < ApplicationController
 		@venue = params[:venue]
 		@search = Event.search(@title, @artist, @date, @city, @venue)
 		if @search.empty?
-			flash[:nothing] = "NOPE"
+			flash[:nothing] = "Sorry, nothing in the database matched your search fields."
 			render 'home'
 		else
 			@results = @search.order(date: :asc)
 			render 'search_show'
 		end
-		binding.pry
+		# binding.pry
 	end
 
 	def new
