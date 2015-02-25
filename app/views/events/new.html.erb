@@ -1,0 +1,42 @@
+
+<h2>Create Some Shit</h2>
+
+
+<% if flash[:errors] %>
+    <ul>
+      <% @event.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+<% end %>
+
+
+
+<%= form_for (@event) do |f| %>
+	<%= f.label :title %>:
+	<%= f.text_field :title %><br />
+
+	<%= f.label :description %>:
+	<%= f.text_area :description %><br />
+
+	<%= f.label :date %>:
+	<%= f.date_field :date %><br />
+
+	<%= f.label :time %>:
+	<%= f.time_field :time %><br />
+
+
+	<%= f.label :venue %>:
+	<%= f.text_field :venue %><br />
+
+	<%= f.label :city %>:
+	<%= f.text_field :city %><br />
+
+	<%= f.label :ticket %>:
+	<%= f.text_field :ticket %><br />
+
+	<%= f.submit %>
+<% end %>
+
+
+
