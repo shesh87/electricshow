@@ -1,7 +1,22 @@
 class EventsController < ApplicationController
 
-	def index
-		render 'index'
+	def home
+		@events = Event.search(params[:search])
+	end
+
+	def results
+		# @events = Event.all
+		# @city = params[:city]
+		# @results = @events.search(@city)
+		# @events = Event.all
+		# @results = @events.find(1)
+		@city = params[:city]
+		@search = Event.search(@city)
+		@results = @search.order(date: :asc)
+
+		render 'search_show'
+		
+
 	end
 
 	def new
@@ -16,11 +31,18 @@ class EventsController < ApplicationController
 			redirect_to(event_path(@event))
 		else
 			flash[:error] = "Event not created"
-			render "new"
+			render 'new'
 		end
 	end
 
+	def show
+		@event = Event.find(params[:id])
+	end
 
+	# def search
+	#   # @event = Event.search params[:search]
+	#   render 'search'
+	# end
 
 	private
 		def event_params

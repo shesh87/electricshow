@@ -1,0 +1,12 @@
+<h1>WE FOUND SOMETHING</h1>
+
+
+
+
+<ul>
+	<% @results.each do |show|%>
+		<li>
+			<%= show.title %> - <%= show.date %>
+		</li>
+	<% end %>
+</ul>

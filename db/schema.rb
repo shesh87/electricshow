@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20150224233355) do
 
   create_table "events", force: :cascade do |t|
     t.string   "title"
+    t.text     "artist"
     t.text     "description"
     t.date     "date"
     t.time     "time"

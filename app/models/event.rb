@@ -1,6 +1,8 @@
 class Event < ActiveRecord::Base
 	validates :title, presence: true
 	validates :title, format: {with: /\w/}
+	# validates :artist, presence: true
+	# validates :artist, format: {with: /\w/}
 	validates :description, presence: true
 	validates :date, presence: true
 	validates :time, presence: true
@@ -9,8 +11,13 @@ class Event < ActiveRecord::Base
 	validates :city, presence: true
 	validates :city, format: {with: /\w/}
 	validates :ticket, presence: true
-	validates :ticket, format: { :with => /\A\d+(?:\.\d{0,2})?\z/ }
+	validates :ticket, presence: true
 	
+
+	def self.search(search)
+		@city = search
+		where('city ILIKE :city', city: @city)
+	end
 
 
 

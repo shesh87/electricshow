@@ -1,8 +1,8 @@
 
-<h2>Create Some Shit</h2>
+<h2>Create Some Shiznit</h2>
 
 
-<% if flash[:errors] %>
+<% if flash[:error] %>
     <ul>
       <% @event.errors.full_messages.each do |error| %>
         <li><%= error %></li>
@@ -13,29 +13,32 @@
 
 
 <%= form_for (@event) do |f| %>
-	<%= f.label :title %>:
+	<%= f.label :title %>
 	<%= f.text_field :title %><br />
 
-	<%= f.label :description %>:
+	<%= f.label :artist %> <br>
+	(separate artists with commas)<br>
+	<%= f.text_area :artist %><br />
+
+	<%= f.label :description %><br>
 	<%= f.text_area :description %><br />
 
-	<%= f.label :date %>:
+	<%= f.label :date %>
 	<%= f.date_field :date %><br />
 
-	<%= f.label :time %>:
+	<%= f.label :time %>
 	<%= f.time_field :time %><br />
 
-
-	<%= f.label :venue %>:
+	<%= f.label :venue %>
 	<%= f.text_field :venue %><br />
 
-	<%= f.label :city %>:
+	<%= f.label :city %>
 	<%= f.text_field :city %><br />
 
-	<%= f.label :ticket %>:
+	<%= f.label :ticket %> Link
 	<%= f.text_field :ticket %><br />
 
-	<%= f.submit %>
+	<%= f.submit "Create Event" %>
 <% end %>
 
 

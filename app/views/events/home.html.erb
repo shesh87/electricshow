@@ -1,0 +1,28 @@
+<h1>THIS IS HOME/SEARCH PAGE</h1>
+
+
+<button>
+	<%= link_to('Create Event', new_event_path) %>
+</button>
+<!-- <button>
+	<%= link_to('Search', search_path) %>
+</button> -->
+
+<br><br>
+
+
+<div class="col-sm-10">
+
+
+
+<%= form_tag("/search/results", method: "get") do %>
+  <%= label_tag(:city, "Search in this city:") %>
+  <%= search_field_tag(:city) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+
+
+
+
+</div>
