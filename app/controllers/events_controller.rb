@@ -1,22 +1,24 @@
 class EventsController < ApplicationController
 
 	def home
-		@events = Event.search(params[:search])
+		# @events = Event.search(params[:title], params[:artist], params[:date], params[:city], params[:venue])
 	end
 
 	def results
-		# @events = Event.all
-		# @city = params[:city]
-		# @results = @events.search(@city)
-		# @events = Event.all
-		# @results = @events.find(1)
+		@title = params[:title]
+		@artist = params[:artist]
+		@date = params[:date]
 		@city = params[:city]
-		@search = Event.search(@city)
-		@results = @search.order(date: :asc)
-
-		render 'search_show'
-		
-
+		@venue = params[:venue]
+		@search = Event.search(@title, @artist, @date, @city, @venue)
+		if @search.empty?
+			flash[:nothing] = "NOPE"
+			render 'home'
+		else
+			@results = @search.order(date: :asc)
+			render 'search_show'
+		end
+		binding.pry
 	end
 
 	def new
@@ -39,14 +41,10 @@ class EventsController < ApplicationController
 		@event = Event.find(params[:id])
 	end
 
-	# def search
-	#   # @event = Event.search params[:search]
-	#   render 'search'
-	# end
 
 	private
 		def event_params
-			params.require(:event).permit(:title, :description, :date, :time, :venue, :city, :ticket)
+			params.require(:event).permit(:title, :description, :date, :artist, :time, :venue, :city, :ticket)
 		end
 
 end

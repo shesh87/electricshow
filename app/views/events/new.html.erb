@@ -3,6 +3,7 @@
 
 
 <% if flash[:error] %>
+	<%= flash[:error] %>
     <ul>
       <% @event.errors.full_messages.each do |error| %>
         <li><%= error %></li>

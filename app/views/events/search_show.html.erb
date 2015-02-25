@@ -6,7 +6,7 @@
 <ul>
 	<% @results.each do |show|%>
 		<li>
-			<%= show.title %> - <%= show.date %>
+			<%= link_to(show.title, event_path(show.id)) %> - <%= show.date %>
 		</li>
 	<% end %>
 </ul>

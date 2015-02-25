@@ -11,18 +11,44 @@
 <br><br>
 
 
-<div class="col-sm-10">
 
-
-
-<%= form_tag("/search/results", method: "get") do %>
-  <%= label_tag(:city, "Search in this city:") %>
-  <%= search_field_tag(:city) %>
-  <%= submit_tag("Search") %>
+<% if flash[:nothing] %>
+    <%= flash[:nothing] %>
 <% end %>
 
 
+<br><br>
 
 
+<div class="col-sm-10">
+
+	<%= form_tag("/search/results", method: "get") do %>
+	  <%= label_tag(:title, "Event:") %>
+	  <%= search_field_tag(:title) %>
+
+	  <%= label_tag(:artist, "Artist(s):") %>
+	  <%= search_field_tag(:artist) %>
+
+	  <%= label_tag(:date, "Date:") %>
+	  <%= date_field_tag(:date) %>
+
+	  <%= label_tag(:city, "City:") %>
+	  <%= search_field_tag(:city) %>
+
+	  <%= label_tag(:venue, "Venue:") %>
+	  <%= search_field_tag(:venue) %>
+
+	  <%= collection_select(Event.all, :id, :title) %>
+
+	  <%= submit_tag("Search") %>
+	<% end %>
 
 </div>
+
+
+
+
+
+
+
+
