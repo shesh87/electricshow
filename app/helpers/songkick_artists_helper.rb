@@ -1,0 +1,2 @@
+module SongkickArtistsHelper
+end

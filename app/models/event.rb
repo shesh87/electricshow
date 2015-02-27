@@ -1,4 +1,6 @@
 class Event < ActiveRecord::Base
+	require 'songkickr'
+	
 	has_and_belongs_to_many :artists
 
 
@@ -14,7 +16,6 @@ class Event < ActiveRecord::Base
 	validates :city, presence: true
 	validates :city, format: {with: /\w/}
 	validates :ticket, presence: true
-	validates :ticket, presence: true
 	
 
 	def self.search(title, artist, date, city, venue)
@@ -29,4 +30,23 @@ class Event < ActiveRecord::Base
 
 
 
+	def get_events(artist)
+		results_object = remote.events(:artist_name => artist)
+	end
+
+
+
 end
+
+
+
+
+
+
+
+
+
+
+
+
+

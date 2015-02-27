@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 
 gem 'twitter-bootstrap-rails'
 gem 'pry'
+gem 'httparty'
+gem 'songkickr'
+# gem 'songkick', '~> 0.0.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'

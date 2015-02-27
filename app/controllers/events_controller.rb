@@ -10,14 +10,24 @@ class EventsController < ApplicationController
 		@date = params[:date]
 		@city = params[:city]
 		@venue = params[:venue]
-		@search = Event.search(@title, @artist, @date, @city, @venue)
-		if @search.empty?
-			flash[:nothing] = "Sorry, nothing in the database matched your search fields."
-			render 'home'
-		else
-			@results = @search.order(date: :asc)
-			render 'search_show'
-		end
+
+		#SONGKICKR/SONGKICK DATA
+		# remote = Songkickr::Remote.new 'ytdyo3y8ogUPkAt5'
+		# results_object = remote.events(:artist_name => @artist)
+		# @songkickr_events = results_object.results
+		# results_object = remote.events(:location => @city)
+
+
+		#POSTGRESQL DATA
+		# @search = Event.search(@title, @artist, @date, @city, @venue)
+		
+		# if @search.empty? && @results.empty?
+		# 	flash[:nothing] = "Sorry, nothing in the database matched your search fields."
+		# 	render 'home'
+		# else
+		# 	@results = @search.order(date: :asc)
+		# 	render 'results'
+		# end
 		# binding.pry
 	end
 
@@ -40,6 +50,10 @@ class EventsController < ApplicationController
 	def show
 		@event = Event.find(params[:id])
 	end
+
+
+
+
 
 
 	private
