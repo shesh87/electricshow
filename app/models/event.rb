@@ -30,11 +30,6 @@ class Event < ActiveRecord::Base
 
 
 
-	def get_events(artist)
-		results_object = remote.events(:artist_name => artist)
-	end
-
-
 
 end
 

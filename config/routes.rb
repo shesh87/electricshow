@@ -9,8 +9,10 @@ Rails.application.routes.draw do
 
 
   get "/admin" => "songkick_artists#admin"
-  get "" => ""
-  get "/admin/songkick_artists/new" => "songkick_artists#create"
+  get "/admin/songkick_artists/new" => "songkick_artists#new"
+  post "/admin/songkick_artists" => "songkick_artists#create"
+  get "/admin/songkick_artists" => "songkick_artists#index", as: "index"
+
 
   # post "/admin/search" => "events#search_songkick"
 

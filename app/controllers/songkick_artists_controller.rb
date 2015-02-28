@@ -6,26 +6,34 @@ class SongkickArtistsController < ApplicationController
 	end
 
 	def new
-		# @event = Event.new
-		# render 'admin'
 		render 'new'
 	end
 
 	def create
-		# @event = Event.new artist_params
-		# if @event.save
-		# 	flash[:notice] = "Event created succesfully"
-		# 	redirect_to(event_path(@event))
-		# else
-		# 	flash[:error] = "Event not created"
-		# 	render 'new'
-		# end
 		@artist = params[:artist]
-		binding.pry
+		
+		remote = Songkickr::Remote.new 
+		results_object = remote.events(:artist_name => @artist)
+		@songkick_events = results_object.results
+		@new_artist = SongkickArtist.all
+		@results = @new_artist.find_artists(@songkick_events)
+
+		# binding.pry
+		redirect_to(index_path)
+	end
+
+	def index
+		render 'index'
 	end
 
 
-
+		# if artist added to database?
+		# 	flash[:error] = "Sorry, artist not added."
+		# 	render 'new'
+		# else
+		# 	flash[:sucess] = "Artisted added to database."
+		# 	render 'new'
+		# end
 
 
 	private

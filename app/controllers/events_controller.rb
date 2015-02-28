@@ -19,15 +19,15 @@ class EventsController < ApplicationController
 
 
 		#POSTGRESQL DATA
-		# @search = Event.search(@title, @artist, @date, @city, @venue)
+		@search = Event.search(@title, @artist, @date, @city, @venue)
 		
-		# if @search.empty? && @results.empty?
-		# 	flash[:nothing] = "Sorry, nothing in the database matched your search fields."
-		# 	render 'home'
-		# else
-		# 	@results = @search.order(date: :asc)
-		# 	render 'results'
-		# end
+		if @search.empty?
+			flash[:nothing] = "Sorry, nothing in the database matched your search fields."
+			render 'home'
+		else
+			@results = @search.order(date: :asc)
+			render 'results'
+		end
 		# binding.pry
 	end
 
