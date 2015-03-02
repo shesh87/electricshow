@@ -16,6 +16,12 @@ class Users::SessionsController < Devise::SessionsController
   #   super
   # end
 
+
+  # GET /resource/:id
+    def show
+      @user = User.find(params[:id])
+    end
+
   # protected
 
   # You can put the params you want to permit in the empty array.

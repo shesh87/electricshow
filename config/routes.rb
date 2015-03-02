@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  # devise_for :users
+  devise_for :users, controllers: { sessions: "users/sessions" }
+  devise_scope :user do
+    get "/users/:id" => "users/sessions#show", as: "user_page"
+  end
+
   root "events#home"
   
   get "/" => "events#home", as: "home"
@@ -16,12 +21,10 @@ Rails.application.routes.draw do
   post "/admin/songkick_artists" => "songkick_artists#create"
   get "/admin/songkick_artists" => "songkick_artists#index", as: "index"
 
-  # resources :users
+  resources :posts
 
 
-  # devise_for :users, controllers: {
-  #   sessions: 'sessions'
-  # }
+  
 
 
 end
