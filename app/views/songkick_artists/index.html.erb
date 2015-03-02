@@ -1,11 +1,4 @@
-<h1>ARTIST ADDED TO DATABASE</h1>
-
-
-
-<%if @exist.empty?%>
-<% else %>
-	<H2>EVENTS ALREADY EXIST</H2>
-<% end %>
+<H2>EVENTS ALREADY EXIST</H2>
 
 
 <ul>
@@ -16,4 +9,12 @@
 
 
 
-<!--  -->
+<H2>EVENTS ADDED</H2>
+
+
+<ul>
+	<% @results.each do |event| %>
+		<li><%= event.display_name %></li>
+	<% end %>
+</ul>
+

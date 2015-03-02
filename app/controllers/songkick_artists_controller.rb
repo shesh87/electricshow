@@ -17,32 +17,18 @@ class SongkickArtistsController < ApplicationController
 		
 		new_artist = SongkickArtist.all
 		@results = new_artist.find_artists(songkick_events)
-
-		redirect_to(index_path)
-		binding.pry
-		if @results.empty? == false
-			flash[:sucess] = "Artist events added succesfully"
-			redirect_to(event_path(@event))
+		@exist = new_artist.record_found
+		if @exist.empty? == false
+			render 'index'
 		else
-			flash[:error] = "Event not created"
-			render 'new'
+			flash[:success] = "Artist events added succesfully"
+			redirect_to(admin_songkick_artists_new_path)
 		end
 	end
 
-	def index
-		new_artist = SongkickArtist.all
-		@exist = new_artist.record_found
-		render 'index'
-	end
 
 
-		# if artist added to database?
-		# 	flash[:error] = "Sorry, artist not added."
-		# 	render 'new'
-		# else
-		# 	flash[:sucess] = "Artisted added to database."
-		# 	render 'new'
-		# end
+
 
 
 	private

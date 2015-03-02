@@ -7,7 +7,6 @@ class Event < ActiveRecord::Base
 	validates :title, presence: true
 	validates :title, format: {with: /\w/}
 	validates :artist, presence: true
-	# validates :artist, format: {with: /\w/}
 	validates :description, presence: true
 	validates :date, presence: true
 	validates :time, presence: true
@@ -29,6 +28,13 @@ class Event < ActiveRecord::Base
 	end
 
 
+	def self.event_exists(title, date)
+		if Event.exists?(['title ILIKE :title', title: "%#{title}%"]) && Event.exists?(date: date)
+			return "yes"
+		else
+			return "no"
+		end
+	end
 
 
 end

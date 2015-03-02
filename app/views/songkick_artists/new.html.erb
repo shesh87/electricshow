@@ -1,5 +1,10 @@
 <h1>ADMIN LOGGED IN</h1>
 
+<% if flash[:success] %>
+	<%= flash[:success] %>
+<% end %>
+
+
 <%= form_tag ("/admin/songkick_artists"), :method => :post do %>
 	<%= label_tag(:artist, "Artist(s):") %>
 	<%= text_field_tag(:artist) %>

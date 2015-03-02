@@ -12,6 +12,11 @@
 <% end %>
 
 
+<% if flash[:found] %>
+	<%= flash[:found] %>
+<% end %>
+
+
 
 <%= form_for (@event) do |f| %>
 	<%= f.label :title %>

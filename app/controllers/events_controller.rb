@@ -19,7 +19,6 @@ class EventsController < ApplicationController
 			@results = @search.order(date: :asc)
 			render 'results'
 		end
-		# binding.pry
 	end
 
 	def new
@@ -29,12 +28,21 @@ class EventsController < ApplicationController
 
 	def create
 		@event = Event.new event_params
-		if @event.save
-			flash[:notice] = "Event created succesfully"
-			redirect_to(event_path(@event))
+		title = @event.title
+		date = @event.date
+		@exist = Event.event_exists(title, date)
+		binding.pry
+		if @exist == "yes" 
+			flash[:found] = "Event already exist in database."
+			redirect_to(new_event_path)
 		else
-			flash[:error] = "Event not created"
-			render 'new'
+			if @event.save
+				flash[:notice] = "Event created succesfully"
+				redirect_to(event_path(@event))
+			else
+				flash[:error] = "Event not created"
+				render 'new'
+			end
 		end
 	end
 
