@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  devise_for :users
+  root "events#home"
   
   get "/" => "events#home", as: "home"
   get "/search" => "events#search", as: "search"
@@ -14,7 +16,12 @@ Rails.application.routes.draw do
   post "/admin/songkick_artists" => "songkick_artists#create"
   get "/admin/songkick_artists" => "songkick_artists#index", as: "index"
 
+  # resources :users
 
-  # post "/admin/search" => "events#search_songkick"
+
+  # devise_for :users, controllers: {
+  #   sessions: 'sessions'
+  # }
+
 
 end

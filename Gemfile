@@ -4,6 +4,7 @@ gem 'twitter-bootstrap-rails'
 gem 'pry'
 gem 'httparty'
 gem 'songkickr'
+gem 'devise'
 # gem 'songkick', '~> 0.0.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
