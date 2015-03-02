@@ -12,10 +12,10 @@
 
 
 <div class="flash-msg">
-		<% if flash[:nothing] %>
-    		<%= flash[:nothing] %>
-		<% end %>
-	</div>
+	<% if flash[:nothing] %>
+		<%= flash[:nothing] %>
+	<% end %>
+</div>
 
 <br><br>
 
@@ -39,11 +39,11 @@
 	  <%= search_field_tag(:venue) %>
 
 	  <%= submit_tag("Search") %>
+	  <%= link_to("Reset", home_path) %>
 	<% end %>
 
 </div>
 
-<button type="button" class="here">Click Here</button>
 
 
 

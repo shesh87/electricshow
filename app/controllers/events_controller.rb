@@ -10,15 +10,6 @@ class EventsController < ApplicationController
 		@date = params[:date]
 		@city = params[:city]
 		@venue = params[:venue]
-
-		#SONGKICKR/SONGKICK DATA
-		# remote = Songkickr::Remote.new 'ytdyo3y8ogUPkAt5'
-		# results_object = remote.events(:artist_name => @artist)
-		# @songkickr_events = results_object.results
-		# results_object = remote.events(:location => @city)
-
-
-		#POSTGRESQL DATA
 		@search = Event.search(@title, @artist, @date, @city, @venue)
 		
 		if @search.empty?

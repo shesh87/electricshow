@@ -1,5 +1,7 @@
 class SongkickArtist < ActiveRecord::Base
 	require 'songkickr'
+	attr_accessor :exist
+
 
 	def self.find_artists(songkick_events)
 		songkick_events.each do |event|
@@ -11,10 +13,10 @@ class SongkickArtist < ActiveRecord::Base
 				end
 
 			#artist
-				@art = event.performances.map do |artist|
+				@performers = event.performances.map do |artist|
 					artist.display_name
 				end
-				@artist = @art.join(", ")
+				@artist = @performers.join(", ")
 
 			#date & time
 				if event.start == nil
@@ -50,11 +52,26 @@ class SongkickArtist < ActiveRecord::Base
 				else
 					@text = event.venue.description
 				end
-			
-			Event.create(title: (@title), artist: (@artist), description: (@text), date: (@date), time: (@date), venue: (@venue), city: (@city), ticket: (@link))
+
+			create_event(@title, @artist, @text, @date, @venue, @city, @link)
+			# Event.create(title: (), artist: (), description: (), date: (@date), time: (@date), venue: (@venue), city: (@city), ticket: (@link))
 		end
-		binding.pry
 	end
+
+	@exist = []
+	def self.create_event(title, artist, text, date, venue, city, link)
+		if Event.exists?(['title ILIKE :title', title: "%#{title}%"]) && Event.exists?(date: date)
+			@exist.push("#{title} already exist in database.")
+		else
+			Event.create(title: (@title), artist: (@artist), description: (@text), date: (@date), time: (@date), venue: (@venue), city: (@city), ticket: (@link))
+		end	
+	end
+
+	def self.record_found
+		@exist		
+	end
+
+
 end
 
 
