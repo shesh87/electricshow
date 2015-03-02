@@ -1,9 +1,7 @@
 class EventsController < ApplicationController
 
 	def home
-		# events = Events.all
-		# @location_events = events.where('city ILIKE :city', city: "%#{city}%")
-		# @events = Event.search(params[:title], params[:artist], params[:date], params[:city], params[:venue])
+		
 	end
 
 	def results
@@ -53,12 +51,14 @@ class EventsController < ApplicationController
 	end
 
 	def location
-		city = params[:city]
-		events = Events.all
-		@location_events = events.where('city ILIKE :city', city: "%#{city}%")
+		@city = params[:city]
+		@events = Event.all
+		@location_events = @events.location_events(@city)
 		# binding.pry
-		redirect_to(home_path)
+		render json: @location_events
 	end
+
+
 
 
 

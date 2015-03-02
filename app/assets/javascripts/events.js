@@ -8,6 +8,11 @@ $( document ).ready(function() {
   }
 });
 
+function error(n) {
+  console.log(n.message);
+  $('.error_msg').text("Could not locate your location.");
+}
+
 function success(position) {
   var latitude = position.coords.latitude;
   var longitude = position.coords.longitude;
@@ -16,18 +21,35 @@ function success(position) {
     url: 'http://maps.googleapis.com/maps/api/geocode/json?latlng=' +latitude+ ',' +longitude+ '&sensor=true',
     dataType: 'json'
   }).done(function(data){
-    console.log(data.results[1].address_components[1].long_name)
-    var city = data.results[1].address_components[1].long_name
-    $.post( "/search/" + city);
+    // console.log(data)
+    // console.log(data.results[1].address_components[2].long_name)
+    var city = data.results[1].address_components[2].long_name
+    getEvents(city);
   }).error(function(error) {
-    console.log(error);
+    // console.log(error);
+    alert('An error occurred while trying to find your location.');
   });
 }
 
-function error(n) {
-  console.log(n.message);
-  $('.error_msg').text("Could not locate your location.");
+
+function getEvents(city) {
+  $.ajax({
+    url: '/search/' + city,
+    type: "POST",
+  }).done(function( msg ) {
+    console.log(msg)
+    console.log(msg[0].title)
+
+    $('.js-events').empty();
+    msg.forEach(function(show) {
+      console.log(show.title + ' - title of show')
+        $('ul.js-events').html("<li><a href='/events/" +show.id+ "'>" +show.title+ "</a></li>");
+    });
+
+  });
 }
+
+
 
 
 

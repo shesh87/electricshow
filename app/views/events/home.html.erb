@@ -50,18 +50,11 @@
 </div>
 
 
-
-<% if @location_events.empty? %>
-	<p>Nothing</p>
-<% else %>
-	<div>
-		<ul>
-			<% @location_events.each do |event| %>
-				<li><%= event.title %></li>
-			<% end %>
-		</ul>
-	</div>
-<% end %>
+<div>
+	<ul class=".js-events">
+		
+	</ul>
+</div>
 
 
 
