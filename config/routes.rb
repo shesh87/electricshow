@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "/" => "events#home", as: "home"
   get "/search" => "events#search", as: "search"
   get "/search/results" => "events#results"
+  post "/search/:city" => "events#location"
 
   resources :events
 

@@ -1,43 +1,35 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
-// Find events
-$('.btn').on('click', function() {
-  var artist = $('input#artist').val();
-  alert(artist + 'hi');
-  
-  // $.ajax({
-  //   type: 'GET',
-  //   url: 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20geo.placefinder%20where%20text%3D%22' + place + '%22&format=json&callback=',
-  //   dataType: 'json'
-  // }).done(function(data){
-  //   console.log(data.query.results.Result.latitude);
-  //   var lat = data.query.results.Result.latitude;
-  //   var long = data.query.results.Result.longitude;
-  //   mapImage(lat, long);
-  // }).error(function(error) {
-  //   console.log(error);
-  // });
-  
+//Tracks current location on map
+$( document ).ready(function() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(success, error);
+  }
 });
 
+function success(position) {
+  var latitude = position.coords.latitude;
+  var longitude = position.coords.longitude;
+  $.ajax({
+    type: 'GET',
+    url: 'http://maps.googleapis.com/maps/api/geocode/json?latlng=' +latitude+ ',' +longitude+ '&sensor=true',
+    dataType: 'json'
+  }).done(function(data){
+    console.log(data.results[1].address_components[1].long_name)
+    var city = data.results[1].address_components[1].long_name
+    $.post( "/search/" + city);
+  }).error(function(error) {
+    console.log(error);
+  });
+}
 
-//Find given city location on map
-// $('.city').on('click', function() {
-//   var place = $('input#city').val();
-//   console.log(place);
-  
-//   $.ajax({
-//     type: 'GET',
-//     url: 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20geo.placefinder%20where%20text%3D%22' + place + '%22&format=json&callback=',
-//     dataType: 'json'
-//   }).done(function(data){
-//     console.log(data.query.results.Result.latitude);
-//     var lat = data.query.results.Result.latitude;
-//     var long = data.query.results.Result.longitude;
-//     mapImage(lat, long);
-//   }).error(function(error) {
-//     console.log(error);
-//   });
-  
-// });
+function error(n) {
+  console.log(n.message);
+  $('.error_msg').text("Could not locate your location.");
+}
+
+
+
+
+

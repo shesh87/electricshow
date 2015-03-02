@@ -1,6 +1,8 @@
 class EventsController < ApplicationController
 
 	def home
+		# events = Events.all
+		# @location_events = events.where('city ILIKE :city', city: "%#{city}%")
 		# @events = Event.search(params[:title], params[:artist], params[:date], params[:city], params[:venue])
 	end
 
@@ -31,7 +33,7 @@ class EventsController < ApplicationController
 		title = @event.title
 		date = @event.date
 		@exist = Event.event_exists(title, date)
-		binding.pry
+		# binding.pry
 		if @exist == "yes" 
 			flash[:found] = "Event already exist in database."
 			redirect_to(new_event_path)
@@ -48,6 +50,14 @@ class EventsController < ApplicationController
 
 	def show
 		@event = Event.find(params[:id])
+	end
+
+	def location
+		city = params[:city]
+		events = Events.all
+		@location_events = events.where('city ILIKE :city', city: "%#{city}%")
+		# binding.pry
+		redirect_to(home_path)
 	end
 
 
