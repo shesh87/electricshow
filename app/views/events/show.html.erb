@@ -28,8 +28,9 @@
 <div>
 	<h2>COMMENTS</h2>
 	<ul class="comments">
-		<
-		<li></li>
+		<% @posts.each do |comment| %>
+			<li><%= comment.comments %></li>
+		<% end %>
 	</ul>
 </div>
 

@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
 	before_action :authenticate_user!
-	before_action :
 	
 
 	def new
@@ -34,10 +33,4 @@ class PostsController < ApplicationController
 		def post_params
 			params.require(:post).permit(:comments)
 		end
-
-		# def authorized?
-		#   unless session[:user_id]
-		#     redirect_to => :controller => "users", :action => "login"
-		#   end
-		# end
 end
