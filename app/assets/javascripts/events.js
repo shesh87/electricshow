@@ -10,6 +10,8 @@ $( document ).ready(function() {
   }
 });
 
+//NEED THIS GEO TRACKER TO ONLY DISPLAY ON HOME PAGE
+//REVISE --> SECOND COLUMN SHOULD GIVE DROP DOWN BOX OF THE CITY USERS WANT CALENDAR EVENTS FOR
 
 // $(document).ready(function() {
 //   if(window.location === "/") {
@@ -35,8 +37,8 @@ function success(position) {
     dataType: 'json'
   }).done(function(data){
     // console.log(data)
-    // console.log(data.results[1].address_components[2].long_name)
-    var city = data.results[1].address_components[1].long_name
+    // console.log(data.results[0].address_components[2].long_name)
+    var city = data.results[1].address_components[2].long_name
     get30Events(city);
     // getTodayEvents(city);
   }).error(function(error) {

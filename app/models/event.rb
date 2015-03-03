@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
 	require 'songkickr'
-	
 	has_and_belongs_to_many :artists
+	has_many :posts
 
 
 	validates :title, presence: true

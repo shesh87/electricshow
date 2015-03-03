@@ -1,14 +1,14 @@
-<h1>NEW EVENT CREATION PAGE</h1>
+<h1>NEW EVENT CREATED PAGE</h1>
 
 
 
 
 <nav class="navbar-sub">
-	<%= link_to('Edit', edit_event_path(@event.id)) %>
+	<%= link_to('Edit', edit_event_path(@event)) %>
 </nav>
 
 
-<h2><%= @event.title %></h2>
+<h3><%= @event.title %></h3>
 
 
 
@@ -18,8 +18,20 @@
 <p><%= @event.time.strftime('%I:%M %p') %></p>
 <p><%= @event.venue %></p>
 <p><%= @event.city %></p>
-<p>Purchase Tickets Here: <a href=<%= @event.ticket %> target="_blank"><%= @event.ticket %></a></p>
+<p>Purchase Tickets Here: <a href=<%= @event.ticket %> target="_blank"><%=@event.ticket%></a></p>
 
+
+
+<button><%= link_to("Write A Post", new_event_post_path)%></button>
+<br>
+
+<div>
+	<h2>COMMENTS</h2>
+	<ul class="comments">
+		<
+		<li></li>
+	</ul>
+</div>
 
 
 

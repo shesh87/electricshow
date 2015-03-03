@@ -23,7 +23,8 @@ Rails.application.routes.draw do
 
   resources :posts
 
-
+  get "events/:id/posts/new" => "posts#new", as: "new_event_post"
+  post "events/:id/posts" => "posts#create", as: "event_posts"
   
 
 
