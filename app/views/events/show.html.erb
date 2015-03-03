@@ -1,10 +1,15 @@
 <h1>NEW EVENT CREATION PAGE</h1>
 
-<% if flash[:notice] %>
-	<%= flash[:notice] %>
-<% end %>
+
+
+
+<nav class="navbar-sub">
+	<%= link_to('Edit', edit_event_path(@event.id)) %>
+</nav>
+
 
 <h2><%= @event.title %></h2>
+
 
 
 <p><%= @event.artist %></p>
@@ -16,18 +21,7 @@
 <p>Purchase Tickets Here: <a href=<%= @event.ticket %> target="_blank"><%= @event.ticket %></a></p>
 
 
-<div class="comments">
-	<h3>Comments</h3>
-	<% @comments.each do |comment| %>
-	  <div>
-	    <strong><%= comment.user_name %></strong>
-	    <br />
-	    <p><%= comment.body %></p>
-	    <p><%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></p>
-	  </div>
-<% end %>
-<%= render 'comments/form' %>
-</div>
+
 
 
 

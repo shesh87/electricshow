@@ -41,15 +41,21 @@
 	  <%= search_field_tag(:venue) %>
 
 	  <%= submit_tag("Search") %>
-	  <%= link_to("Reset", home_path) %>
+	  <button><%= link_to("Reset", home_path) %></button>
 	<% end %>
 
 </div>
 
 
 <div>
-	<ul class=".js-events">
-		
+	<h3>Today's Events</h3>
+	<ul class="js-today">
+	</ul>
+</div>
+
+<div>
+	<h3>What's Coming Up</h3>
+	<ul class="js-30days">
 	</ul>
 </div>
 

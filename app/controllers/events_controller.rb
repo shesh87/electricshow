@@ -1,7 +1,6 @@
 class EventsController < ApplicationController
 
 	def home
-		
 	end
 
 	def results
@@ -40,7 +39,7 @@ class EventsController < ApplicationController
 				flash[:notice] = "Event created succesfully"
 				redirect_to(event_path(@event))
 			else
-				flash[:error] = "Event not created"
+				flash[:alert] = "Event not created"
 				render 'new'
 			end
 		end
@@ -53,11 +52,25 @@ class EventsController < ApplicationController
 	def location
 		@city = params[:city]
 		@events = Event.all
-		@location_events = @events.location_events(@city)
-		# binding.pry
-		render json: @location_events
+		@location_month_events = @events.location_events(@city)
+		# @location_month_events.where(date: (date.beginning_of_day..date.end_of_day))
+		render json: @location_month_events
 	end
 
+	def edit
+		@event = Event.find(params[:id])
+	end
+
+	def update
+		@event = Event.find(params[:id])
+		if @event.update_attributes(event_params)
+			flash[:notice] = "Event updated succesfully"
+			redirect_to action: 'show', controller: 'events', id: @event.id
+		else
+			flash[:alert] = "Event not updated"
+			render 'edit'
+		end
+	end
 
 
 

@@ -1,15 +1,28 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
-//Tracks current location on map
+
+
+
 $( document ).ready(function() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(success, error);
   }
 });
 
+
+// $(document).ready(function() {
+//   if(window.location === "/") {
+//     // if (navigator.geolocation) {
+//     //   navigator.geolocation.getCurrentPosition(success, error);
+//     // }
+//     alert('yes');
+//     console.log('yes');
+//   }
+// });
+
 function error(n) {
-  console.log(n.message);
+  // console.log(n.message);
   $('.error_msg').text("Could not locate your location.");
 }
 
@@ -23,31 +36,43 @@ function success(position) {
   }).done(function(data){
     // console.log(data)
     // console.log(data.results[1].address_components[2].long_name)
-    var city = data.results[1].address_components[2].long_name
-    getEvents(city);
+    var city = data.results[1].address_components[1].long_name
+    get30Events(city);
+    // getTodayEvents(city);
   }).error(function(error) {
-    // console.log(error);
     alert('An error occurred while trying to find your location.');
   });
 }
 
 
-function getEvents(city) {
+function get30Events(city) {
   $.ajax({
     url: '/search/' + city,
     type: "POST",
   }).done(function( msg ) {
-    console.log(msg)
-    console.log(msg[0].title)
-
-    $('.js-events').empty();
+    $('.js-30days').empty();
     msg.forEach(function(show) {
-      console.log(show.title + ' - title of show')
-        $('ul.js-events').html("<li><a href='/events/" +show.id+ "'>" +show.title+ "</a></li>");
+      var fullDate = new Date();
+      var twoDigitMonth = ((fullDate.getMonth().length+1) === 1)? (fullDate.getMonth()+1) : '0' + (fullDate.getMonth()+1);
+      var twoDigitDate = fullDate.getDate()+"";if(twoDigitDate.length==1) twoDigitDate="0" +twoDigitDate;
+      var currentDate = fullDate.getFullYear() + "-" + twoDigitMonth + "-" + twoDigitDate;
+      
+      // console.log(currentDate == show.date);
+      if (currentDate == show.date) {
+        getTodayEvents(show);
+      } else {
+        $('.js-30days').append("<li><a href='/events/" +show.id+ "'>" +show.title+ "</a></li>");
+      }
     });
-
   });
 }
+
+
+function getTodayEvents(show) {
+  $('.js-today').append("<li><a href='/events/" +show.id+ "'>" +show.title+ "</a></li>");
+}
+
+
 
 
 

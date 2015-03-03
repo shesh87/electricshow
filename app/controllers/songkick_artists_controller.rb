@@ -16,14 +16,11 @@ class SongkickArtistsController < ApplicationController
 		songkick_events = results_object.results
 		
 		new_artist = SongkickArtist.all
-		@results = new_artist.find_artists(songkick_events)
+		new_artist.find_artists(songkick_events)
 		@exist = new_artist.record_found
-		if @exist.empty? == false
-			render 'index'
-		else
-			flash[:success] = "Artist events added succesfully"
-			redirect_to(admin_songkick_artists_new_path)
-		end
+		@results = new_artist.events_added
+
+		render 'index'
 	end
 
 

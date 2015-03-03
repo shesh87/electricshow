@@ -38,7 +38,7 @@ class Event < ActiveRecord::Base
 
 	def self.location_events(city)
 		date = Time.now
-		where('city ILIKE :city', city: "%#{city}%").where(date: (Time.now.midnight..date.end_of_month)).limit(10).order(date: :asc)
+		where('city ILIKE :city', city: "%#{city}%").where(date: (Time.now.midnight..date.days_since(30))).order(date: :asc)
 		# binding.pry
 	end
 
