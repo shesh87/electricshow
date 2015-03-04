@@ -33,7 +33,7 @@ function success(position) {
   var longitude = position.coords.longitude;
   $.ajax({
     type: 'GET',
-    url: 'http://maps.googleapis.com/maps/api/geocode/json?latlng=' +latitude+ ',' +longitude+ '&sensor=true',
+    url: '//maps.googleapis.com/maps/api/geocode/json?latlng=' +latitude+ ',' +longitude+ '&sensor=true',
     dataType: 'json'
   }).done(function(data){
     // console.log(data)
