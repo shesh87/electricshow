@@ -1,18 +1,17 @@
-<div class="home">
+<!--BACKGROUND IMAGE-->
+<div class="bckgrd-img"></div>
+<div class="home search-splash">
 
+	<div class="row row-search">
 
-
-	<div class="row col-sm-12 search-splash">
-
-			<div class="flash-msg">
-				<% if flash[:nothing] %>
-					<%= flash[:nothing] %>
-				<% end %>
-			</div>
-			<br><br>
-
+		<div class="flash-msg">
+			<% if flash[:nothing] %>
+				<%= flash[:nothing] %>
+			<% end %>
+		</div>
+		<br><br>
 	
-		<div class="col-sm-12 search-form">
+		<div class="col-sm-8 search-form">
 			<%= form_tag("/search/results", method: "get") do %>
 			  <%= label_tag(:title, "Event:") %>
 			  <%= search_field_tag(:title) %>
