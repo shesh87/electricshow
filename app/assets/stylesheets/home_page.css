@@ -1,0 +1,41 @@
+header {
+	background-color: #fff;
+	border-bottom: 2px solid #428bca;
+}
+header p.pull-right :nth-child(2) {
+	display: none;
+}
+.title-logo {
+	font-family: 'Codystar', cursive;
+	font-weight: 400;
+	font-size: 45px;
+	letter-spacing: 1px;
+	margin: 0;
+}
+.title-logo a:hover {
+	color: red;
+	text-decoration: none;
+}
+.navbar-links {
+	padding-top: 34px;
+}
+p.navbar-links a {
+	margin: 0 10px 0 0;
+}
+.hello-user {
+	color: #000;
+}
+.search-splash {
+	margin-bottom: 150px;
+}
+.search-form {
+	text-align: center;
+}
+.search-form form input {
+	margin-bottom: 15px;
+}
+.search-form form label {
+	margin-bottom: 15px;
+}
+
+

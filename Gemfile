@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'twitter-bootstrap-rails'
 gem 'pry'
 gem 'httparty'
 gem 'songkickr'
 gem 'devise'
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
 # gem 'songkick', '~> 0.0.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

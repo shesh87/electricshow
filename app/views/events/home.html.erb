@@ -1,66 +1,66 @@
-<h1>THIS IS HOME/SEARCH PAGE</h1>
-
-
-<button>
-	<%= link_to('Create Event', new_event_path) %>
-</button>
+<div class="home">
 
 
 
-<br><br>
+	<div class="row col-sm-12 search-splash">
+
+			<div class="flash-msg">
+				<% if flash[:nothing] %>
+					<%= flash[:nothing] %>
+				<% end %>
+			</div>
+			<br><br>
+
+	
+		<div class="col-sm-12 search-form">
+			<%= form_tag("/search/results", method: "get") do %>
+			  <%= label_tag(:title, "Event:") %>
+			  <%= search_field_tag(:title) %>
+
+			  <%= label_tag(:artist, "Artist(s):") %>
+			  <%= search_field_tag(:artist) %>
+
+			  <%= label_tag(:date, "Date:") %>
+			  <%= date_field_tag(:date) %><br>
+
+			  <%= label_tag(:city, "City:") %>
+			  <%= search_field_tag(:city) %>
+
+			  <%= label_tag(:venue, "Venue:") %>
+			  <%= search_field_tag(:venue) %><br>
+
+			  <%= submit_tag("Search") %>
+			  <button><%= link_to("Reset", home_path) %></button>
+			<% end %>
+		</div>
+		<button>
+			<%= link_to('Create Event', new_event_path) %>
+		</button>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-6">
+			<h3>Today's Events</h3>
+			<ul class="js-today">
+				<p>No events for today.</p>
+			</ul>
+		</div>
+
+		<div class="col-sm-6">
+			<h3>What's Coming Up</h3>
+			<ul class="js-30days">
+				<p>No events for the next 30 days.</p>
+			</ul>
+		</div>
+	</div>
 
 
 
 
 
-<div class="flash-msg">
-	<% if flash[:nothing] %>
-		<%= flash[:nothing] %>
-	<% end %>
+
+
 </div>
-
-<br><br>
-
-
-<div class="col-sm-10">
-
-	<%= form_tag("/search/results", method: "get") do %>
-	  <%= label_tag(:title, "Event:") %>
-	  <%= search_field_tag(:title) %>
-
-	  <%= label_tag(:artist, "Artist(s):") %>
-	  <%= search_field_tag(:artist) %>
-
-	  <%= label_tag(:date, "Date:") %>
-	  <%= date_field_tag(:date) %>
-
-	  <%= label_tag(:city, "City:") %>
-	  <%= search_field_tag(:city) %>
-
-	  <%= label_tag(:venue, "Venue:") %>
-	  <%= search_field_tag(:venue) %>
-
-	  <%= submit_tag("Search") %>
-	  <button><%= link_to("Reset", home_path) %></button>
-	<% end %>
-
-</div>
-
-
-<div>
-	<h3>Today's Events</h3>
-	<ul class="js-today">
-		<p>No events for today.</p>
-	</ul>
-</div>
-
-<div>
-	<h3>What's Coming Up</h3>
-	<ul class="js-30days">
-		<p>No events for the next 30 days.</p>
-	</ul>
-</div>
-
 
 
 

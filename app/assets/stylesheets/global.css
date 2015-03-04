@@ -1,0 +1,9 @@
+a:link {
+	color: blue;
+}
+a:visted {
+	color: #000;
+}
+a:active {
+	color: #000;
+}
