@@ -64,7 +64,7 @@ class SongkickArtist < ActiveRecord::Base
 			@exist.push(title)
 		else
 			Event.create(title: (@title), artist: (@artist), description: (@text), date: (@date), time: (@date), venue: (@venue), city: (@city), ticket: (@link))
-			@add.push(@title)
+			@added.push(@title)
 		end	
 	end
 
