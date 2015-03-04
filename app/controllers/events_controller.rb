@@ -30,7 +30,7 @@ class EventsController < ApplicationController
 		title = @event.title
 		date = @event.date
 		@exist = Event.event_exists(title, date)
-		# binding.pry
+		
 		if @exist == "yes" 
 			flash[:found] = "Event already exist in database."
 			redirect_to(new_event_path)
@@ -48,7 +48,6 @@ class EventsController < ApplicationController
 	def show
 		@event = Event.find(params[:id])
 		@posts = Post.where(event_id: "#{@event.id}")
-		binding.pry
 	end
 
 	def location

@@ -28,8 +28,13 @@
 <div>
 	<h2>COMMENTS</h2>
 	<ul class="comments">
-		<% @posts.each do |comment| %>
-			<li><%= comment.comments %></li>
+		<% @posts.each do |post| %>
+			<li>
+				<%= post.comments %>
+				<% if post.user_id == current_user.id %>
+					<%= link_to('Delete', delete_post_path(post.id), :method => :delete) %>
+				<% end %>
+			</li>
 		<% end %>
 	</ul>
 </div>

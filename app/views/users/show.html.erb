@@ -1,0 +1,23 @@
+<h1>NEW USER ACCOUNT PAGE</h1>
+
+
+
+<h2>Hello <%= @user.first_name %>!</h2>
+
+<%= image_tag "../assets/images/sheonna_profile_pic.jpg" %>
+<p><%= @user.first_name %> <%= @user.last_name %></p>
+<p><%= @user.email %></p>
+<p><%= @user.birthdate %></p>
+
+<div>
+	<h3>Posts You've Made</h3>
+	<ul class="comments">
+		<% @posts.each do |post| %>
+			<li><%= post.comments %></li>
+		<% end %>
+	</ul>
+</div>
+
+
+
+

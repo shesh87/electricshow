@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # devise_for :users
   devise_for :users, controllers: { sessions: "users/sessions" }
   devise_scope :user do
-    get "/users/:id" => "users/sessions#show", as: "user_page"
+    get "/users/:id" => "users#show", as: "user_page"
   end
 
   root "events#home"
@@ -23,8 +23,9 @@ Rails.application.routes.draw do
 
   resources :posts
 
-  get "events/:id/posts/new" => "posts#new", as: "new_event_post"
-  post "events/:id/posts" => "posts#create", as: "event_posts"
+  get "/events/:id/posts/new" => "posts#new", as: "new_event_post"
+  post "/events/:id/posts" => "posts#create", as: "event_posts"
+  delete "/posts/:id" => "posts#destroy", as: "delete_post"
   
 
 

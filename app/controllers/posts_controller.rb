@@ -26,6 +26,14 @@ class PostsController < ApplicationController
 	def show
 		@post = Post.find(params[:id])
 	end
+	def destroy
+		@post = Post.find(params[:id])
+		if @post.user_id == current_user.id
+			@post.destroy
+		end
+		@event = @post.event_id
+		redirect_to(event_path(@event))
+	end
 
 
 
