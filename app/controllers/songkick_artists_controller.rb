@@ -11,7 +11,7 @@ class SongkickArtistsController < ApplicationController
 
 	def create
 		artist = params[:artist]
-		remote = Songkickr::Remote.new ''
+		remote = Songkickr::Remote.new Rails.configuration.x.songkick.api_key
 		results_object = remote.events(:artist_name => artist)
 		songkick_events = results_object.results
 		

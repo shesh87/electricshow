@@ -42,4 +42,8 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  #SONGKICK API KEY
+  config.x.songkick.api_key = ''
+
 end
