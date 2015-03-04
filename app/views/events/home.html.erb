@@ -1,9 +1,10 @@
 <!--BACKGROUND IMAGE-->
-<div class="bckgrd-img"></div>
+<!-- <div class="bckgrd-img"></div> -->
 <div class="home search-splash">
 
-	<div class="row row-search">
-
+	<div class="row bckgrd-img">
+<!-- <div class="bckgrd-img"> -->
+<div class="row-search">
 		<div class="flash-msg">
 			<% if flash[:nothing] %>
 				<%= flash[:nothing] %>
@@ -32,6 +33,8 @@
 			  <button><%= link_to("Reset", home_path) %></button>
 			<% end %>
 		</div>
+</div>
+<!-- </div> -->
 		<button>
 			<%= link_to('Create Event', new_event_path) %>
 		</button>
