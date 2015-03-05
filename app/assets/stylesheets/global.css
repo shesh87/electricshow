@@ -1,5 +1,5 @@
 a:link {
-	color: blue;
+	color: #428bca;
 }
 a:visted {
 	color: #000;
@@ -7,6 +7,14 @@ a:visted {
 a:active {
 	color: #000;
 }
-main {
-	margin-top: 14px;
+p {
+	font-size: 16px;
+}
+
+.footer {
+	height: 40px;
+	position: fixed;
+	bottom: 0;
+	background-color: #428bca;
+	margin-top: 50px;
 }

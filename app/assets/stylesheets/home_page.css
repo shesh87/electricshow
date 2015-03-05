@@ -1,9 +1,12 @@
-.navbar {
-	background-color: #fff;
-	border-bottom: 5px solid #428bca !important;
+header {
+	margin-bottom: 67px;
 }
-header p.pull-right :nth-child(2) {
+.home .edit-profile {
 	display: none;
+}
+.navbar-bar {
+	background-color: #fff;
+	border-bottom: 3px solid #428bca !important;
 }
 .title-logo {
 	font-family: 'Codystar', cursive;
@@ -13,18 +16,28 @@ header p.pull-right :nth-child(2) {
 	margin: 0;
 }
 .title-logo a:hover {
-	color: red;
+	color: #428bca;
 	text-decoration: none;
 }
 .navbar-links {
-	padding-top: 34px;
-}
-p.navbar-links a {
+	padding-top: 27px;
 	margin: 0 10px 0 0;
+	font-size: 18px;
 }
-.navbar p {
-	margin: 0 15px -2px;
+.navbar-links .navbar-link {
+	margin-right: 10px;
 }
+.navbar-links a:hover {
+	text-decoration: none;
+	color: #428bca;
+}
+.navbar-links .navbar-link:last-child {
+	margin-right: 0;
+}
+.navbar-text {
+	margin: 0 15px !important;
+}
+
 .hello-user {
 	color: #000;
 }
@@ -49,24 +62,51 @@ p.navbar-links a {
 	background-image: url('../images/bck-1.jpg');
 	background-size: cover;
 	display: block;
-	/*filter: blur(3px);
-	-webkit-filter: blur(3px);*/
-	/*height: 90%;
-	position: fixed;
-	left: 0;
-	top: 0;
-	right: 0;
-	z-index: 1;*/
-	padding: 130px 0 100px;
+	padding: 120px 0 110px;
+	margin: 0 0 35px;
 }
-/*.search-splash {
-	position: relative;
-	z-index: 2;
-	margin: 0 auto;
-	padding: 5% 0;
-}*/
-.home {
-	margin: 62px 0 0;
+.search-title {
+	margin-bottom: 50px;
 }
+.search-form .form-tag {
+	display: inline-block;
+	margin: 0 10px 20px;
+	vertical-align: top;
+}
+.search-form .form-tag input#date {
+  height: 25px;
+}
+.search-form .form-btns {
+ 	clear: left;
+ 	font-size: 18px;
+ 	margin: 10px 0 0 0;
+ 	color: #333;
+}
+.search-form .form-btns a {
+	color: #333;
+}
+input[type="submit"] {
+  margin: 0 20px 0 0 !important;
+}
+.search-form form label {
+  margin-bottom: 10px !important;
+  font-size: 18px;
+  color: #fff !important;
+  letter-spacing: 1px;
+  font-weight: normal;
+}
+p.label-text {
+	margin: -11px 0 0 0;
+	font-size: 14px;
+}
+.flash-msg {
+  margin-bottom: 25px;
+  margin-top: -20px;
+  font-weight: bold;
+  font-size: 18px;
+  color: red;
+}
+
+
 
 

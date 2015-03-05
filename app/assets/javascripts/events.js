@@ -4,7 +4,7 @@
 
 
 
-$( document ).ready(function() {
+$(document).ready(function() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(success, error);
   }
@@ -12,16 +12,6 @@ $( document ).ready(function() {
 
 //NEED THIS GEO TRACKER TO ONLY DISPLAY ON HOME PAGE
 //REVISE --> SECOND COLUMN SHOULD GIVE DROP DOWN BOX OF THE CITY USERS WANT CALENDAR EVENTS FOR
-
-// $(document).ready(function() {
-//   if(window.location === "/") {
-//     // if (navigator.geolocation) {
-//     //   navigator.geolocation.getCurrentPosition(success, error);
-//     // }
-//     alert('yes');
-//     console.log('yes');
-//   }
-// });
 
 function error(n) {
   // console.log(n.message);

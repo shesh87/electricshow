@@ -1,43 +1,67 @@
-<h1>NEW EVENT CREATED PAGE</h1>
-
-
-
-
-<nav class="navbar-sub">
+<!-- <nav class="navbar-sub">
 	<%= link_to('Edit', edit_event_path(@event)) %>
-</nav>
+</nav> -->
 
 
-<h3><%= @event.title %></h3>
+<div class="row event-img">
+	
+</div>
 
+<div class="col-sm-6 posts-container">
 
-
-<p><%= @event.artist %></p>
-<p><%= @event.description %></p>
-<p><%= @event.date %></p>
-<p><%= @event.time.strftime('%I:%M %p') %></p>
-<p><%= @event.venue %></p>
-<p><%= @event.city %></p>
-<p>Purchase Tickets Here: <a href=<%= @event.ticket %> target="_blank"><%=@event.ticket%></a></p>
-
-
-
-<button><%= link_to("Write A Post", new_event_post_path)%></button>
-<br>
-
-<div>
 	<h2>COMMENTS</h2>
+	<p class="post-title">
+	<%= link_to("Write A Post", new_event_post_path)%><span class="fa fa-pencil"></span></p>
 	<ul class="comments">
 		<% @posts.each do |post| %>
-			<li>
-				<%= post.comments %>
-				<% if post.user_id == current_user.id %>
-					<%= link_to('Delete', delete_post_path(post.id), :method => :delete) %>
-				<% end %>
-			</li>
+			<div class="comment-box clearfix">
+				<li>
+					<div class="user-img"></div>
+					<div class="user-text">
+						<p><span class="user-name">
+							<% num = post.user_id %>
+							<% user = User.find(num) %>
+							<%= user.user_name %>
+						</span><br>
+						<%= post.comments %>
+						<% if user_signed_in? %>
+							<% if post.user_id == current_user.id %>
+								<%= link_to('Delete', delete_post_path(post.id), :method => :delete) %>
+							<% end %>
+						<% end %></p>
+					</div>
+				</li>
+			</div>
 		<% end %>
 	</ul>
+
 </div>
+
+
+<div class="col-sm-6 event-info-container">
+	<h3><%= @event.title %></h3>
+	<p><span class="fa fa-music"></span><%= @event.artist %></p>
+	<p><span class="fa fa-pencil"></span><%= @event.description %></p>
+	<p><span class="fa fa-calendar"></span><%= @event.date.strftime('%a %b %d, %Y') %></p>
+	<p><span class="fa fa-clock-o"></span><%= @event.time.strftime('%I:%M %p') %></p>
+	<p><span class="fa fa-building"></span><%= @event.venue %></p>
+	<p><span class="fa fa-plane"></span><%= @event.city %></p>
+	<p><span class="fa fa-ticket"></span>Purchase Tickets Here: <a href=<%= @event.ticket %> target="_blank"><%=@event.ticket%></a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

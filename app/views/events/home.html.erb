@@ -1,43 +1,50 @@
-<!--BACKGROUND IMAGE-->
-<!-- <div class="bckgrd-img"></div> -->
-<div class="home search-splash">
+
+<div class="home">
 
 	<div class="row bckgrd-img">
-<!-- <div class="bckgrd-img"> -->
-<div class="row-search">
-		<div class="flash-msg">
-			<% if flash[:nothing] %>
-				<%= flash[:nothing] %>
-			<% end %>
+		<div class="row-search">
+			
+			<div class="col-sm-12 search-form clearfix">
+				<h2 class="search-title">All Your Favorite Acts In One Place</h2>
+				<div class="flash-msg">
+					<% if flash[:nothing] %>
+						<%= flash[:nothing] %>
+					<% end %>
+				</div>
+				<%= form_tag("/search/results", method: "get") do %>
+					<div class="form-tag">
+					  <%= label_tag(:event, "Event") %><br>
+					  <%= search_field_tag(:event) %>
+					</div>
+					<div class="form-tag">
+					  <%= label_tag(:artist, "Artists") %><br>
+					  <%= search_field_tag(:artist) %>
+					  <p class="label-text">Separate by commas</p>
+					</div>
+
+					<div class="form-tag">
+					  <%= label_tag(:date, "Date") %><br>
+					  <%= date_field_tag(:date) %>
+					</div>
+
+					<div class="form-tag">
+					  <%= label_tag(:city, "City") %><br>
+					  <%= search_field_tag(:city) %>
+					</div>
+
+					<div class="form-tag">
+					  <%= label_tag(:venue, "Venue") %><br>
+					  <%= search_field_tag(:venue) %>
+					</div>
+
+					<div class="form-btns">
+					  <%= submit_tag("Search") %>
+					  <button><%= link_to("Reset", home_path) %></button>
+					</div>
+				<% end %>
+			</div>
 		</div>
-		<br><br>
-	
-		<div class="col-sm-8 search-form">
-			<%= form_tag("/search/results", method: "get") do %>
-			  <%= label_tag(:title, "Event:") %>
-			  <%= search_field_tag(:title) %>
 
-			  <%= label_tag(:artist, "Artist(s):") %>
-			  <%= search_field_tag(:artist) %>
-
-			  <%= label_tag(:date, "Date:") %>
-			  <%= date_field_tag(:date) %><br>
-
-			  <%= label_tag(:city, "City:") %>
-			  <%= search_field_tag(:city) %>
-
-			  <%= label_tag(:venue, "Venue:") %>
-			  <%= search_field_tag(:venue) %><br>
-
-			  <%= submit_tag("Search") %>
-			  <button><%= link_to("Reset", home_path) %></button>
-			<% end %>
-		</div>
-</div>
-<!-- </div> -->
-		<button>
-			<%= link_to('Create Event', new_event_path) %>
-		</button>
 	</div>
 
 	<div class="row">
