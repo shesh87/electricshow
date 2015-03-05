@@ -1,0 +1,46 @@
+.sign-bckgrd-img {
+  background-image: url('../images/color19.png'); /*low-poly-texture-26*/
+  background-size: cover;
+  display: block;
+ /* filter: blur(3px);
+  -webkit-filter: blur(3px);*/
+  height: 800px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 1040;
+}
+
+.sign-splash {
+  position: relative;
+  z-index: 1045;
+}
+.sign-splash a {
+  color: #333;
+  font-size: 15px;
+}
+.signin-container {
+  float: none !important;
+  margin: 0 auto;
+}
+.signin-container .actions {
+  clear: both;
+  text-align: center;
+  top: 6px;
+  position: relative;
+}
+.signin-container a.actions-forgot {
+  margin-top: 10px;
+  display: block;
+}
+.new_user .field {
+  float: left;
+  margin-bottom: 10px;
+}
+.new_user .field:nth-child(odd) {
+  margin-right: 15px;
+}
+.new_user input#user_birthdate {
+  height: 26px;
+}
