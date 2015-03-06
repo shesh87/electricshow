@@ -1,20 +1,24 @@
-<H3>EVENTS ALREADY EXIST</H3>
+<div class="container admin-page">
+
+	<div class="col-sm-6">
+		<H3>EVENTS ADDED</H3>
+		<ul>
+			<% @results.each do |event| %>
+				<li><%= event %></li>
+			<% end %>
+		</ul>
+	</div>
+	
+
+	<div class="col-sm-6">
+		<H3>EVENTS ALREADY EXIST</H3>
+		<ul>
+			<% @exist.each do |event| %>
+				<li><%= event %></li>
+			<% end %>
+		</ul>
+	</div>
+	
 
 
-<ul>
-	<% @exist.each do |event| %>
-		<li><%= event %></li>
-	<% end %>
-</ul>
-
-
-
-<H3>EVENTS ADDED</H3>
-
-
-<ul>
-	<% @results.each do |event| %>
-		<li><%= event %></li>
-	<% end %>
-</ul>
-
+</div>

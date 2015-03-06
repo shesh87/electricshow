@@ -1,12 +1,14 @@
-<h1>ADMIN LOGGED IN</h1>
+<div class="container admin-page">
+	<h1>ADMIN LOGGED IN</h1>
 
 
 
-<%= form_tag ("/admin/songkick_artists"), :method => :post do %>
-	<%= label_tag(:artist, "Artist(s):") %>
-	<%= text_field_tag(:artist) %>
+	<%= form_tag ("/admin/songkick_artists"), :method => :post do %>
+		<%= label_tag(:artist, "Artist(s):") %>
+		<%= text_field_tag(:artist) %>
 
-	<%= submit_tag("Add") %>
-<% end %>
+		<%= submit_tag("Add") %>
+	<% end %>
 
 
+</div>
