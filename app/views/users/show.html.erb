@@ -1,26 +1,27 @@
-<h1>NEW USER ACCOUNT PAGE</h1>
+<div class="container">
+	<h2>Hello <%= @user.first_name %>!</h2>
+
+	<%= image_tag "sheonna_profile_pic.jpg" %>
+	<br><br>
+	<button>
+		<%= link_to('Create Event', new_event_path) %>
+	</button>
+	<br><br>
+	<p class="user-info"><strong>Name:</strong> <%= @user.first_name %> <%= @user.last_name %></p>
+	<p class="user-info"><strong>Email:</strong> <%= @user.email %></p>
+	<p class="user-info"><strong>Birthdate:</strong> <%= @user.birthdate %></p>
+	<p class="user-info"><strong>About Me:<br></strong>I'm a web developer in south florida who loves music festivals, raves and general good times.</p>
 
 
-
-<h2>Hello <%= @user.first_name %>!</h2>
-<button>
-	<%= link_to('Create Event', new_event_path) %>
-</button>
-<%= image_tag "sheonna_profile_pic.jpg" %>
-<p class="user-info"><strong>Name:</strong> <%= @user.first_name %> <%= @user.last_name %></p>
-<p class="user-info"><strong>Email:</strong> <%= @user.email %></p>
-<p class="user-info"><strong>Birthdate:</strong> <%= @user.birthdate %></p>
-<p class="user-info"><strong>About Me:<br></strong>I'm a web developer in south florida who loves music festivals, raves and general good times.</p>
-
-<div>
-	<h3>Posts You've Made</h3>
-	<ul class="comments">
-		<% @posts.each do |post| %>
-			<li><%= post.comments %></li>
-		<% end %>
-	</ul>
+	<div>
+		<h3>Posts You've Made</h3>
+		<ul class="comments">
+			<% @posts.each do |post| %>
+				<li><%= post.comments %></li>
+			<% end %>
+		</ul>
+	</div>
 </div>
-
 
 
 

@@ -51,3 +51,6 @@
 .new_user input#user_birthdate {
   height: 26px;
 }
+.field-old-pass {
+  float: left !important;
+}

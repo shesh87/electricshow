@@ -1,19 +1,23 @@
-<% if flash[:error] %>
-    <ul>
-      <% @post.errors.full_messages.each do |error| %>
-        <li><%= error %></li>
-      <% end %>
-    </ul>
-<% end %>
+<div class="container new-post-page">
+	<% if flash[:error] %>
+	    <ul>
+	      <% @post.errors.full_messages.each do |error| %>
+	        <li><%= error %></li>
+	      <% end %>
+	    </ul>
+	<% end %>
 
 
 
 
 
-<%= form_for ([@event,@post]) do |f| %>
-	<%= f.label :comments %>
-	<%= f.text_area :comments %><br />
+	<%= form_for ([@event,@post]) do |f| %>
+		<%= f.label :comments %>
+		<%= f.text_area :comments %><br />
 
-	<%= f.submit "Submit Post" %>
-	<button><%= link_to("Cancel", event_path)%></button>
-<% end %>
+		<%= f.submit "Submit Post" %>
+		<button><%= link_to("Cancel", event_path)%></button>
+	<% end %>
+</div>
+
+
