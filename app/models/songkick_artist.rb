@@ -4,6 +4,9 @@ class SongkickArtist < ActiveRecord::Base
 
 
 	def self.find_artists(songkick_events)
+		@exist = []
+		@added = []
+		
 		songkick_events.each do |event|
 			#event title
 				if event.display_name == nil
@@ -57,8 +60,6 @@ class SongkickArtist < ActiveRecord::Base
 		end
 	end
 
-	@exist = []
-	@added = []
 	def self.create_event(title, artist, text, date, venue, city, link)
 		if Event.exists?(['title ILIKE :title', title: "%#{title}%"]) && Event.exists?(date: date)
 			@exist.push(title)
