@@ -11,9 +11,16 @@ header {
 .title-logo {
 	font-family: 'Codystar', cursive;
 	font-weight: 400;
-	font-size: 45px;
+	font-size: 45px !important;
 	letter-spacing: 1px;
 	margin: 0;
+	position: relative;
+	z-index: 1045;
+	text-align: center;
+}
+.title-logo-color {
+  color: #fff;
+  text-shadow: 1px 1px 3px #333;
 }
 .title-logo a:hover {
 	color: #428bca;
@@ -34,10 +41,6 @@ header {
 .navbar-links .navbar-link:last-child {
 	margin-right: 0;
 }
-.navbar-text {
-	margin: 0 15px !important;
-}
-
 .hello-user {
 	color: #000;
 }

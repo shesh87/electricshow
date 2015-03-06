@@ -20,9 +20,13 @@
   color: #333;
   font-size: 15px;
 }
+.sign-splash a:hover {
+  text-decoration: none;
+  color: #333;
+}
 .signin-container {
   float: none !important;
-  margin: 0 auto;
+  margin: 20px auto 0;
 }
 .signin-container .actions {
   clear: both;
@@ -40,6 +44,9 @@
 }
 .new_user .field:nth-child(odd) {
   margin-right: 15px;
+}
+.new_user .field:nth-child(even) {
+  float: right;
 }
 .new_user input#user_birthdate {
   height: 26px;

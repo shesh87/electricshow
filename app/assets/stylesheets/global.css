@@ -13,8 +13,9 @@ p {
 
 .footer {
 	height: 40px;
-	position: fixed;
+	position: relative !important;
 	bottom: 0;
 	background-color: #428bca;
-	margin-top: 50px;
+	margin-top: 70px;
 }
+

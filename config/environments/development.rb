@@ -44,6 +44,6 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   #SONGKICK API KEY
-  config.x.songkick.api_key = ''
+  config.x.songkick.api_key = ENV['SONGKICK_API_KEY']
 
 end

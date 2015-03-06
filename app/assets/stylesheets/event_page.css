@@ -26,9 +26,9 @@
 	display: block;
 	background-color: #fff;
 	border-radius: 10px;
-	-webkit-border-radius: 10px;
+	/*-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
-	border: 1px solid #333;
+	border: 1px solid #333;*/
 	margin: 0 0 15px;
 	box-shadow: inset 0px 0px 1px blue;
 	clear: both;

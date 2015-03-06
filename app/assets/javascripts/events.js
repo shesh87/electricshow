@@ -5,7 +5,7 @@
 
 
 $(document).ready(function() {
-  if (navigator.geolocation) {
+  if (navigator.geolocation && $('.home').length) {
     navigator.geolocation.getCurrentPosition(success, error);
   }
 });
