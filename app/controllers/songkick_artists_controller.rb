@@ -23,6 +23,10 @@ class SongkickArtistsController < ApplicationController
 		render 'index'
 	end
 
+	# def index
+		
+	# end
+
 
 
 

@@ -28,9 +28,9 @@
   float: none !important;
   margin: 20px auto 0;
 }
-.signin-container .actions-login {
+.signin-container .actions {
   clear: both;
-  text-align: left;
+  text-align: center;
   top: 6px;
   position: relative;
 }

@@ -26,9 +26,9 @@ function success(position) {
     url: '//maps.googleapis.com/maps/api/geocode/json?latlng=' +latitude+ ',' +longitude+ '&sensor=true',
     dataType: 'json'
   }).done(function(data){
-    // console.log(data)
-    // console.log(data.results[1].address_components[1].long_name)
-    var city = data.results[1].address_components[2].long_name
+    console.log(data)
+    console.log(data.results[1].address_components[1].long_name)
+    var city = data.results[1].address_components[1].long_name
     get30Events(city);
     // getTodayEvents(city);
   }).error(function(error) {
@@ -60,7 +60,9 @@ function get30Events(city) {
 
 
 function getTodayEvents(show) {
-  $('.js-today').append("<li><a href='/events/" +show.id+ "'>" +show.title+ "</a> @ "+show.time+" </li>");
+  console.log(show.time);
+  $('.js-today').append("<li><a href='/events/" +show.id+ "'>" +show.title+ "</a></li>");
+  // $('.js-today').append("<li><a href='/events/" +show.id+ "'>" +show.title+ "</a> @ "+show.time+" </li>");
 }
 
 

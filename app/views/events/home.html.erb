@@ -38,8 +38,8 @@
 					</div>
 
 					<div class="form-btns">
-					  <%= submit_tag("Search") %>
-					  <button><%= link_to("Reset", home_path) %></button>
+					  <%= submit_tag("Search", :class => "btn-default btn") %>
+					  <%= button_to("Reset", home_path, :class => "btn-default btn") %>
 					</div>
 				<% end %>
 			</div>
@@ -50,14 +50,14 @@
 	<div class="row">
 		<div class="col-sm-6">
 			<h3>Today's Events</h3>
-			<ul class="js-today">
+			<ul class="js-today today">
 				<p>No events for today.</p>
 			</ul>
 		</div>
 
 		<div class="col-sm-6">
 			<h3>What's Coming Up</h3>
-			<ul class="js-30days">
+			<ul class="js-30days 30days">
 				<p>No events for the next 30 days.</p>
 			</ul>
 		</div>
