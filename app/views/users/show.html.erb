@@ -1,13 +1,13 @@
 <div class="container user">
-	<h2>Hello <%= @user.first_name %>!</h2>
-
-	<%= image_tag "sheonna_profile_pic.jpg" %>
-	<br><br>
 	<button><%= link_to('Create Event', new_event_path)%></button>
 	<br><br>
+
+	<h2>Hello <%= @user.first_name %>!</h2>
+
+	<p class="user-info"><%= @user.picture %></p>
 	<p class="user-info"><strong>Name:</strong> <%= @user.first_name %> <%= @user.last_name %></p>
 	<p class="user-info"><strong>Email:</strong> <%= @user.email %></p>
-	<p class="user-info"><strong>Birthdate:</strong> <%= @user.birthdate %></p>
+	<p class="user-info"><strong>Birthdate:</strong> <%= @user.birthdate.strftime('%B %d %Y') %></p>
 	<p class="user-info"><strong>About Me:<br></strong>I'm a web developer in south florida who loves music festivals, raves and general good times.</p>
 
 

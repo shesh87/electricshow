@@ -8,10 +8,11 @@ class User < ActiveRecord::Base
 	validates :first_name, presence: true
 	validates :last_name, presence: true
 	validates :user_name, presence: true
-	validates :password, presence: true
+	# validates :picure, presence: true
+	# validates :password, presence: true
+	# validates :password, length: { in: 8..10 }
 	validates :birthdate, presence: true
 	validates :user_name, uniqueness: true
-	validates :password, length: { in: 8..10 }
 	validates :email, uniqueness: true
 	# validates :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/
 

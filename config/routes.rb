@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: "users/sessions" }
   devise_scope :user do
     get "/users/:id" => "users#show", as: "user_page"
+    # get "/users/:id/edit" => "users#edit", as: "user_edit"
   end
 
   root "events#home"
