@@ -20,6 +20,22 @@ class UsersController < ApplicationController
 		@posts = Post.where(user_id: @user.id).order(created_at: :asc)
 	end
 
+	def edit
+		@user = User.find(params[:id])
+	end
+
+	def update
+		@user = User.find(params[:id])
+
+		if @user.update(user_params)
+			redirect_to(user_page_path(@user))
+		else
+			render edit_user_registration_path(@user)
+		end
+	end
+
+
+
 	
 	
 

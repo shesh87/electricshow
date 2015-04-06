@@ -1,6 +1,8 @@
 <div class="container user">
+	<%= link_to 'Edit Profile', edit_user_registration_path, :class => 'navbar-link, edit-profile' %>
 	<button><%= link_to('Create Event', new_event_path)%></button>
 	<br><br>
+	
 
 	<h2>Hello <%= @user.first_name %>!</h2>
 
